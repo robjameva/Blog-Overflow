@@ -6,14 +6,14 @@ async function editFormHandler(event) {
     ]
 
     const title = document.querySelector('#title').value.trim();
-    const blogBody = document.querySelector('#post-body').value.trim();
-    console.log(blogBody)
+    const blog_text = document.querySelector('#blog_text').value.trim();
+
 
     const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         body: JSON.stringify({
             title,
-            blogBody
+            blog_text
         }),
         headers: {
             'Content-Type': 'application/json'
