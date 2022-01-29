@@ -32,6 +32,7 @@ router.get('/', withAuth, (req, res) => {
     })
         .then(dbPostData => {
             const posts = dbPostData.map(post => post.get({ plain: true }))
+            console.log(posts)
             res.render('dashboard', { posts, loggedIn: true });
         })
         .catch(err => {
@@ -83,7 +84,9 @@ router.get('/edit/:id', withAuth, (req, res) => {
 
 });
 
-
+router.get('/new_post', withAuth, (req, res) => {
+    res.render('create-post');
+});
 
 
 
